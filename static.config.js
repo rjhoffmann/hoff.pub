@@ -1,19 +1,22 @@
-import axios from 'axios'
+import glob from 'glob';
+import _map from 'lodash/map';
+import matter from 'gray-matter';
 
 export default {
   getSiteData: () => ({
     title: 'React Static',
   }),
   getRoutes: async () => {
-    const { data: posts } = await axios.get('https://jsonplaceholder.typicode.com/posts')
+    const posts = _map(glob.sync('src/posts/**/*.md'), md => matter.read(md));
+
     return [
       {
         path: '/',
-        component: 'src/containers/Home',
+        component: 'src/containers/Home'
       },
       {
         path: '/about',
-        component: 'src/containers/About',
+        component: 'src/containers/About'
       },
       {
         path: '/blog',
@@ -22,7 +25,7 @@ export default {
           posts,
         }),
         children: posts.map(post => ({
-          path: `/post/${post.id}`,
+          path: `/post/${post.data.slug}`,
           component: 'src/containers/Post',
           getData: () => ({
             post,
