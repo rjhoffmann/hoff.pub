@@ -22,7 +22,9 @@
     "react-hot-loader": "^4.0.0-beta.21",
     "react-router": "^4.2.0",
     "react-static": "^5.1.14",
-    "remark": "^9.0.0"
+    "remark": "^9.0.0",
+    "remark-html": "^7.0.0",
+    "remark-react": "^4.0.1"
   },
   "devDependencies": {
     "eslint-config-react-tools": "1.x.x",

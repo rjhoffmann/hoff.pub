@@ -1,12 +1,25 @@
 import React from 'react'
-import { withRouteData, Link } from 'react-static'
-//
+import remark from 'remark';
+import reactRenderer from 'remark-react';
 
-export default withRouteData(({ post }) => (
-  <div>
-    <Link to="/blog/">{'<'} Back</Link>
-    <br />
-    <h3>{post.title}</h3>
-    <p>{post.body}</p>
-  </div>
-))
+import { withRouteData, Link } from 'react-static';
+
+class Post extends React.Component {
+  render() {
+    const { post } = this.props;
+    const renderedPost = remark().use(reactRenderer, {
+
+    }).processSync(post.content);
+
+    return (
+      <div>
+        <Link to="/blog/">{'<'} Back</Link>
+        <br />
+        <h3>{post.data.title}</h3>
+        {renderedPost.contents}
+      </div>
+    )
+  }
+}
+
+export default withRouteData(Post);
