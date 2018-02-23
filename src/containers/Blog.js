@@ -1,5 +1,5 @@
-import React from 'react'
-import { withRouteData, Link } from 'react-static'
+import React from 'react';
+import { withRouteData, Link } from 'react-static';
 
 class Blog extends React.Component {
   render() {

@@ -1,7 +1,6 @@
-import React from 'react'
+import React from 'react';
 import remark from 'remark';
 import reactRenderer from 'remark-react';
-
 import { withRouteData, Link } from 'react-static';
 
 class Post extends React.Component {
