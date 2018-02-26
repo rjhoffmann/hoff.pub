@@ -5,7 +5,7 @@ import { hot } from 'react-hot-loader';
 import 'normalize.css';
 import 'typeface-cardo';
 import 'typeface-josefin-sans';
-import 'typeface-source-code-pro';
+import 'typeface-fira-code';
 
 import Root from './containers/root';
 
