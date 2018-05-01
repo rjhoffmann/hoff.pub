@@ -2,7 +2,6 @@ import React from 'react';
 
 export default () => (
   <div>
-    <h1>This is what we're all about.</h1>
-    <p>React, static sites, performance, speed. It's the stuff that makes us tick.</p>
+    <h1>Hi! I think I&apos;m supposed to be enthusiastic here, I&apos;ll try.</h1>
   </div>
-)
+);
