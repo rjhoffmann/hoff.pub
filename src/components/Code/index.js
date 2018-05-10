@@ -2,9 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Lowlight from 'react-lowlight';
 
+import _each from 'lodash/each';
+import _keys from 'lodash/keys';
+import _has from 'lodash/has';
+
 export default ({ languages }) => {
-  Object.keys(languages).forEach(language => {
-    Lowlight.registerLanguage(language, languages[language]);
+  _each(_keys(languages), lang => {
+    Lowlight.registerLanguage(lang, languages[lang]);
   });
 
   const Code = ({ className = '', children }) => {
@@ -12,8 +16,7 @@ export default ({ languages }) => {
     const value = children[0] || '';
     const props = { value, inline: false };
 
-    if (Object.keys(languages).indexOf(language) > -1) {
-      // Include the language only if it was previously registered
+    if(_has(languages, language)) {
       props.language = language;
     }
 
