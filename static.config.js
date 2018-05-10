@@ -12,11 +12,11 @@ export default {
     return [
       {
         path: '/',
-        component: 'src/containers/Home'
+        component: 'src/containers/Home',
       },
       {
         path: '/about',
-        component: 'src/containers/About'
+        component: 'src/containers/About',
       },
       {
         path: '/blog',
@@ -36,6 +36,6 @@ export default {
         is404: true,
         component: 'src/containers/404',
       },
-    ]
+    ];
   },
-}
+};
