@@ -7,7 +7,7 @@ import _keys from 'lodash/keys';
 import _has from 'lodash/has';
 
 export default ({ languages }) => {
-  _each(_keys(languages), lang => {
+  _each(_keys(languages), (lang) => {
     Lowlight.registerLanguage(lang, languages[lang]);
   });
 
@@ -16,16 +16,16 @@ export default ({ languages }) => {
     const value = children[0] || '';
     const props = { value, inline: false };
 
-    if(_has(languages, language)) {
+    if (_has(languages, language)) {
       props.language = language;
     }
 
-    return <Lowlight {...props} />
+    return <Lowlight {...props} />;
   };
 
   Code.propTypes = {
-    className: PropTypes.string,
-    children: PropTypes.node
+    className: PropTypes.string.isRequired,
+    children: PropTypes.node.isRequired,
   };
 
   return Code;
